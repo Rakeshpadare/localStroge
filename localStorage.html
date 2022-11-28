@@ -8,9 +8,9 @@
 </head>
 <body>
     <form onsubmit="saveToLocalstorage(event)">
-    <label>name</label><br>
+    <label>Name</label><br>
     <input type="text" name="username" required/><br>
-    <label>email</label><br>
+    <label>Email-ID</label><br>
     <input type="text" name="emailId" required/><br>
     <label>phoneNumber</label><br>
     <input type="tel" name="phoneNumber" required/><br>
@@ -25,6 +25,12 @@
         localStorage.setItem('name',name);
         localStorage.setItem('emailId',email);
         localStorage.setItem('tel', phone);
+        const userDetails={
+            name,
+            email,
+            phone
+        }
+        localStorage.setItem('user',JSON.stringify(userDetails))
     }
 </script>
 </body>
