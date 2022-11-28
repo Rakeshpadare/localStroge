@@ -8,6 +8,7 @@
 </head>
 <body>
     <form onsubmit="saveToLocalstorage(event)">
+        <h1> Booking Appointment App</h1>
     <label>Name</label><br>
     <input type="text" name="username" required/><br>
     <label>Email-ID</label><br>
@@ -16,6 +17,7 @@
     <input type="tel" name="phoneNumber" required/><br>
     <button>submit</button>
 </form>
+<ul id="userRegistration"></ul>
 <script>
     function saveToLocalstorage(event){
         event.preventDefault();
@@ -30,7 +32,14 @@
             email,
             phone
         }
-        localStorage.setItem('user',JSON.stringify(userDetails))
+        localStorage.setItem(userDetails.email,JSON.stringify(userDetails))
+        showNewUserOnDisplay(userDetails)
+    }
+    function showNewUserOnDisplay(user){
+        const parentNode=document.getElementById('userRegistration')
+        const childNode= `<li> ${user.name} - ${user.email} - ${user.phone} </li>`
+
+        parentNode.innerHTML=parentNode.innerHTML+childNode;
     }
 </script>
 </body>
